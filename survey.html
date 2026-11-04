@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>استبانة وعي رقمي… فكر وأمن</title>
+<meta name="description" content="الاستبانة القبلية والبعدية لمبادرة وعي رقمي… فكر وأمن – متوسطة خيبر الجنوب">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --ink:#14213d; --muted:#5b6478; --line:#e3e8f0;
+  --teal:#0f8b8d; --teal-soft:#e2f4f4; --navy:#1d3557; --gold:#e9a23b; --gold-soft:#fdf2e0;
+  --rose:#c8553d; --rose-soft:#fbe8e4; --violet:#6c4ab6; --violet-soft:#efe9fa;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f1624;--surface:#172033;--ink:#eef2f8;--muted:#a6b0c3;--line:#26324a;
+  --teal-soft:#123536;--gold-soft:#3a2d15;--rose-soft:#3a1d18;--violet-soft:#2a2142;}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{background:linear-gradient(135deg,#1d3557 0%,#0f8b8d 100%);color:#fff;padding:32px 0 40px}
+header .school{display:inline-block;background:#e9a23b;color:#10213f;font-weight:800;padding:4px 16px;border-radius:999px;font-size:15px}
+header h1{margin:10px 0 4px;font-size:clamp(26px,6vw,38px);line-height:1.3}
+header p{margin:0;opacity:.92;font-size:15px}
+header a{color:#fff}
+main{padding:24px 0 48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+h2{font-size:22px;margin:0 0 6px}
+.muted{color:var(--muted)}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px}
+.choice{font:inherit;font-size:18px;font-weight:700;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:18px 12px;cursor:pointer;text-align:center;min-height:64px}
+.choice:hover{border-color:var(--teal)}
+.choice[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft)}
+.prog{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:4px 0 6px}
+.prog i{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+.q{margin:0 0 12px;font-weight:700;font-size:18px}
+.tag{display:inline-block;font-size:13px;padding:1px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal);margin-bottom:6px;font-weight:700}
+.likert{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.likert button,.mcq button{font:inherit;font-size:15px;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:10px 4px;cursor:pointer;min-height:48px}
+.likert button[aria-pressed="true"],.mcq button[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.mcq{display:grid;gap:8px}
+.mcq button{text-align:right;padding:12px 14px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg);color:var(--ink)}
+label.f{display:block;font-weight:700;margin:12px 0 6px}
+select{width:100%;font:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg);color:var(--ink)}
+.btn{font:inherit;font-size:17px;font-weight:700;background:var(--navy);color:#fff;border:0;border-radius:12px;padding:12px 24px;cursor:pointer;min-height:48px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.err{color:var(--rose);font-weight:700;margin-top:10px}
+.res{display:grid;gap:12px;margin-top:12px}
+.res .bl{display:flex;justify-content:space-between;font-weight:700}
+.track{height:14px;background:var(--line);border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px}
+.big{font-size:44px;font-weight:800;color:var(--teal);text-align:center;line-height:1.2}
+.hidden{display:none!important}
+.sent{background:var(--teal-soft);color:var(--teal);border-radius:12px;padding:12px 16px;font-weight:700;text-align:center}
+.warn{background:var(--gold-soft);border-radius:12px;padding:12px 16px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="school">متوسطة خيبر الجنوب</span>
+    <h1>استبانة مبادرة «وعي رقمي… فكر وأمن»</h1>
+    <p>إعداد الأستاذة أحلام راشد · تحت إشراف الأستاذة زهراء مفلح · <a href="index.html">صفحة المبادرة</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- الخطوة 1: الفئة والنوع -->
+  <section id="stepStart">
+    <div class="card">
+      <h2>أهلًا بكِ</h2>
+      <p class="muted" style="margin:0">إجاباتك سرية ولا تُستخدم إلا لتطوير المبادرة. أجيبي بصدق عمّا تفعلينه فعلًا. المدة 5 إلى 7 دقائق.</p>
+    </div>
+    <div class="card">
+      <h2>من أنتِ؟</h2>
+      <div class="choices" id="groupChoices">
+        <button type="button" class="choice" data-g="students" aria-pressed="false">طالبة</button>
+        <button type="button" class="choice" data-g="teachers" aria-pressed="false">معلمة</button>
+        <button type="button" class="choice" data-g="admin" aria-pressed="false">إدارية</button>
+        <button type="button" class="choice" data-g="parents" aria-pressed="false">ولي أمر</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>نوع القياس</h2>
+      <div class="choices" id="phaseChoices">
+        <button type="button" class="choice" data-p="قبلي" aria-pressed="true">قبل المبادرة (قبلي)</button>
+        <button type="button" class="choice" data-p="بعدي" aria-pressed="false">بعد المبادرة (بعدي)</button>
+      </div>
+    </div>
+    <div class="row"><span></span><button type="button" class="btn" id="startBtn" disabled>ابدئي الاستبانة</button></div>
+  </section>
+
+  <!-- الخطوة 2: الأسئلة -->
+  <section id="stepQs" class="hidden">
+    <div class="card" style="position:sticky;top:0;z-index:2">
+      <div class="row"><b id="qTitle"></b><span class="muted" id="qCount"></span></div>
+      <div class="prog"><i id="qProg"></i></div>
+    </div>
+    <div id="basics"></div>
+    <div id="partA"></div>
+    <div id="partB"></div>
+    <div class="err hidden" id="qErr">فضلًا أجيبي عن جميع الأسئلة قبل الإرسال.</div>
+    <div class="row" style="margin-top:12px">
+      <button type="button" class="btn ghost" id="backBtn">رجوع</button>
+      <button type="button" class="btn" id="submitBtn">إرسال الإجابات</button>
+    </div>
+  </section>
+
+  <!-- الخطوة 3: النتيجة -->
+  <section id="stepDone" class="hidden">
+    <div class="card">
+      <h2 style="text-align:center">شكرًا لمشاركتك</h2>
+      <div class="big" id="overall"></div>
+      <p class="muted" style="text-align:center;margin:0">مستوى الوعي العام</p>
+      <div class="res" id="axisRes"></div>
+      <div id="quizRes" class="muted" style="margin-top:12px;text-align:center"></div>
+    </div>
+    <div id="sendState"></div>
+    <div class="row" style="margin-top:12px"><span></span><button type="button" class="btn ghost" id="againBtn">استبانة جديدة</button></div>
+  </section>
+
+</main>
+
+<script>
+/* ضعي هنا رابط Google Apps Script بعد نشره (انظري ملف التعليمات). اتركيه فارغًا للتجربة. */
+var SHEET_URL = '';
+
+var SURVEY = {
+  students:{name:'الطالبات',
+    basics:[
+      {id:'grade',q:'الصف',o:['أول متوسط','ثاني متوسط','ثالث متوسط']},
+      {id:'phone',q:'هل لديك جوال خاص؟',o:['نعم','لا']},
+      {id:'hours',q:'كم ساعة تقضينها يوميًا على الإنترنت؟',o:['أقل من ساعتين','من 2 إلى 4','أكثر من 4']}],
+    a:[
+      ['أتحقق من مصدر الخبر قبل أن أعيد إرساله.','وعي رقمي'],
+      ['أفرّق بين الرأي الشخصي والمعلومة الموثوقة فيما أقرأ.','وعي رقمي'],
+      ['أفكر في أثر ما أنشره على سمعتي مستقبلًا.','وعي رقمي'],
+      ['أستخدم أدوات الذكاء الاصطناعي في واجباتي بأمانة دون نسخ.','وعي رقمي'],
+      ['أناقش الأفكار الغريبة التي أراها على الإنترنت مع أهلي أو معلمتي.','وعي فكري'],
+      ['أرفض المحتوى الذي يسيء لديني أو وطني أو يدعو للتطرف.','وعي فكري'],
+      ['أشعر بالاعتزاز بهويتي الوطنية عند تعاملي على الإنترنت.','وعي فكري'],
+      ['أحترم الرأي المخالف وأحاور بأدب على وسائل التواصل.','وعي فكري'],
+      ['أستخدم كلمة مرور قوية ومختلفة لكل حساب.','أمن رقمي'],
+      ['فعّلتُ التحقق الثنائي على حساباتي.','أمن رقمي'],
+      ['أرفض طلبات الصداقة والمحادثة من أشخاص لا أعرفهم.','أمن رقمي'],
+      ['لا أشارك صوري أو معلوماتي الشخصية مع الغرباء.','أمن رقمي']],
+    b:[
+      {q:'وصلتك رسالة: «حسابك سيُغلق، اضغطي الرابط فورًا». هذه غالبًا:',o:['رسالة رسمية','رسالة تصيّد','تحديث عادي'],c:1},
+      {q:'أقوى كلمة مرور هي:',o:['12345678','اسمي وتاريخ ميلادي','عبارة طويلة تمزج حروفًا وأرقامًا ورموزًا'],c:2},
+      {q:'حساب مجهول يمدح أفكارك ويطلب الحديث سرًا بعيدًا عن أهلك. هذا:',o:['صداقة طبيعية','علامة خطر لاستدراج أو استقطاب','فرصة للتعارف'],c:1},
+      {q:'إذا تعرضت زميلة لابتزاز إلكتروني فعليها:',o:['الاستجابة للمبتز','الاحتفاظ بالأدلة والإبلاغ وإخبار أسرتها','حذف كل شيء والسكوت'],c:1},
+      {q:'«البصمة الرقمية» هي:',o:['بصمة فتح الجوال','كل أثر نتركه على الإنترنت','برنامج حماية'],c:1}]},
+  teachers:{name:'المعلمات',
+    basics:[
+      {id:'subject',q:'التخصص',text:true},
+      {id:'years',q:'سنوات الخبرة',o:['أقل من 5','من 5 إلى 15','أكثر من 15']}],
+    a:[
+      ['أدمج رسائل الوعي الرقمي في دروسي.','وعي رقمي'],
+      ['أوجّه طالباتي للتحقق من مصادر المعلومات في الواجبات والبحوث.','وعي رقمي'],
+      ['أستخدم أدوات الذكاء الاصطناعي في التعليم بطريقة آمنة وأخلاقية.','وعي رقمي'],
+      ['أعزز قيم الوسطية والاعتدال والهوية الوطنية في الحصة.','وعي فكري'],
+      ['أستطيع التعرف على العلامات السلوكية للتنمر أو الاستقطاب لدى الطالبة.','وعي فكري'],
+      ['أعرف آلية تحويل الحالة المقلقة إلى الموجّهة الطلابية.','وعي فكري'],
+      ['أستخدم كلمة مرور قوية وتحققًا ثنائيًا على حساباتي التعليمية.','أمن رقمي'],
+      ['لا أشارك بيانات الطالبات أو صورهن عبر قنوات غير رسمية.','أمن رقمي'],
+      ['أتحقق من الروابط والمرفقات قبل فتحها.','أمن رقمي']],
+    b:[
+      {q:'لاحظتِ أن طالبة انعزلت فجأة وتخفي جوالها بتوتر. الإجراء الأنسب:',o:['تجاهل الأمر','التحدث معها بهدوء وتحويلها للموجّهة','مصادرة الجوال وتفتيشه'],c:1},
+      {q:'نشر صورة جماعية للطالبات في حساب شخصي:',o:['مسموح دائمًا','يحتاج موافقة الأسرة وسياسة المدرسة','مسموح إن كانت الوجوه واضحة'],c:1},
+      {q:'رسالة من «الدعم الفني» تطلب كلمة المرور لتحديث الحساب. هذه:',o:['طلب رسمي','محاولة تصيّد','إجراء روتيني'],c:1}]},
+  admin:{name:'الإداريات',
+    basics:[
+      {id:'role',q:'طبيعة العمل',o:['شؤون الطالبات','السكرتارية','مصادر التعلم','أخرى']}],
+    a:[
+      ['أتعامل مع بيانات الطالبات وسجلاتهن بسرية تامة.','أمن رقمي'],
+      ['أقفل جهازي أو أسجل الخروج عند مغادرة المكتب.','أمن رقمي'],
+      ['أستخدم كلمة مرور قوية ولا أشاركها مع أحد.','أمن رقمي'],
+      ['فعّلتُ التحقق الثنائي على حسابات العمل.','أمن رقمي'],
+      ['أتحقق من مُرسل الرسالة قبل فتح الروابط أو المرفقات.','أمن رقمي'],
+      ['أبلّغ عن الرسائل المشبوهة بدل حذفها فقط.','أمن رقمي'],
+      ['أتحقق من صحة التعاميم والأخبار قبل تداولها في مجموعات العمل.','وعي رقمي'],
+      ['أحرص على أن يعكس تواصلي الرقمي باسم المدرسة قيمها وهويتها.','وعي فكري']],
+    b:[
+      {q:'ولي أمر يتصل ويطلب رقم هوية ابنته وعنوانها «لتحديث البيانات». التصرف الصحيح:',o:['إعطاؤه البيانات','التحقق من هويته بالقنوات الرسمية أولًا','إرسالها بالواتساب'],c:1},
+      {q:'ملف مرفق بعنوان «فاتورة عاجلة» من بريد غير معروف:',o:['أفتحه للتأكد','لا أفتحه وأبلّغ عنه','أحوّله لزميلتي'],c:1},
+      {q:'أفضل مكان لحفظ كلمات المرور:',o:['ورقة على المكتب','ملف في الجوال باسم «كلمات السر»','مدير كلمات مرور موثوق'],c:2}]},
+  parents:{name:'أولياء الأمور',
+    basics:[
+      {id:'relation',q:'صلة القرابة',o:['أب','أم','أخرى']},
+      {id:'grade',q:'صف الابنة',o:['أول متوسط','ثاني متوسط','ثالث متوسط']},
+      {id:'firstPhone',q:'عمر أول جوال امتلكته الابنة',o:['أقل من 10','من 10 إلى 12','أكثر من 12','لا تملك']}],
+    a:[
+      ['أعرف التطبيقات والمنصات التي تستخدمها ابنتي.','وعي رقمي'],
+      ['أحدد وقتًا يوميًا لاستخدام الشاشات في البيت.','وعي رقمي'],
+      ['فعّلتُ أدوات الرقابة الأبوية على أجهزة ابنتي.','أمن رقمي'],
+      ['أتحدث مع ابنتي عمّا تراه وتواجهه على الإنترنت.','وعي فكري'],
+      ['أشعر أن ابنتي ستخبرني إن تعرضت لموقف مزعج على الإنترنت.','وعي فكري'],
+      ['أعرف علامات الاستدراج أو الاستقطاب الإلكتروني.','وعي فكري'],
+      ['أعرف الجهات الرسمية للإبلاغ عن الابتزاز الإلكتروني.','أمن رقمي'],
+      ['أتحقق من الأخبار قبل إرسالها في مجموعات العائلة.','وعي رقمي'],
+      ['أكون قدوة لابنتي في الاستخدام المتوازن للجوال.','وعي رقمي']],
+    b:[],
+    open:[
+      {id:'worry',q:'ما أكثر ما يقلقك في استخدام ابنتك للإنترنت؟'},
+      {id:'topic',q:'ما الموضوع الذي تتمنى أن تتناوله المدرسة في لقاء الأسر؟'}]}
+};
+var SCALE=['دائمًا','غالبًا','أحيانًا','نادرًا','أبدًا'], SCORE=[5,4,3,2,1];
+var AXIS_COL={'وعي رقمي':'var(--teal)','وعي فكري':'var(--gold)','أمن رقمي':'var(--rose)'};
+
+var group=null, phase='قبلي', ans={};
+function $(id){return document.getElementById(id);}
+function show(id){['stepStart','stepQs','stepDone'].forEach(function(s){$(s).classList.toggle('hidden',s!==id);});window.scrollTo(0,0);}
+function pressGroup(container,btn){container.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false');});}
+
+$('groupChoices').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;group=b.dataset.g;pressGroup(this,b);$('startBtn').disabled=false;});
+$('phaseChoices').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;phase=b.dataset.p;pressGroup(this,b);});
+$('startBtn').addEventListener('click',function(){ans={};build();show('stepQs');});
+$('backBtn').addEventListener('click',function(){show('stepStart');});
+$('againBtn').addEventListener('click',function(){show('stepStart');});
+
+function card(html){var d=document.createElement('div');d.className='card';d.innerHTML=html;return d;}
+function total(){var s=SURVEY[group];return s.basics.length+s.a.length+s.b.length+(s.open?s.open.length:0);}
+function answered(){return Object.keys(ans).filter(function(k){return ans[k]!==''&&ans[k]!==undefined;}).length;}
+function progress(){var t=total(),a=answered();$('qCount').textContent=a+' من '+t;$('qProg').style.width=(a/t*100)+'%';}
+
+function optButtons(key,opts,cls){
+  var wrap=document.createElement('div');wrap.className=cls;
+  opts.forEach(function(o,i){var b=document.createElement('button');b.type='button';b.textContent=o;b.setAttribute('aria-pressed','false');
+    b.onclick=function(){ans[key]=i;wrap.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});progress();};
+    wrap.appendChild(b);});
+  return wrap;
+}
+
+function build(){
+  var s=SURVEY[group];
+  $('qTitle').textContent='استبانة '+s.name+' · '+phase;
+  $('qErr').classList.add('hidden');
+  var bs=$('basics');bs.innerHTML='';
+  var c=card('<h2>البيانات الأساسية</h2>');
+  s.basics.forEach(function(f){
+    var l=document.createElement('label');l.className='f';l.textContent=f.q;c.appendChild(l);
+    if(f.text){var t=document.createElement('input');t.type='text';t.oninput=function(){ans['b_'+f.id]=t.value.trim();progress();};c.appendChild(t);}
+    else{var sel=document.createElement('select');sel.innerHTML='<option value="">اختاري…</option>';f.o.forEach(function(o){var op=document.createElement('option');op.value=o;op.textContent=o;sel.appendChild(op);});
+      sel.onchange=function(){ans['b_'+f.id]=sel.value;progress();};c.appendChild(sel);}
+  });
+  bs.appendChild(c);
+
+  var pa=$('partA');pa.innerHTML='';
+  pa.appendChild(card('<h2>الجزء الأول: ممارساتك</h2><p class="muted" style="margin:0">اختاري ما ينطبق عليكِ فعلًا.</p>'));
+  s.a.forEach(function(it,i){
+    var c=card('<span class="tag"></span><p class="q"></p>');
+    c.querySelector('.tag').textContent=it[1];c.querySelector('.q').textContent=(i+1)+'. '+it[0];
+    c.appendChild(optButtons('a'+i,SCALE,'likert'));pa.appendChild(c);
+  });
+
+  var pb=$('partB');pb.innerHTML='';
+  if(s.b.length){
+    pb.appendChild(card('<h2>الجزء الثاني: معلوماتك</h2><p class="muted" style="margin:0">اختاري الإجابة الصحيحة.</p>'));
+    s.b.forEach(function(it,i){var c=card('<p class="q"></p>');c.querySelector('.q').textContent=(i+1)+'. '+it.q;c.appendChild(optButtons('k'+i,it.o,'mcq'));pb.appendChild(c);});
+  }
+  if(s.open){
+    pb.appendChild(card('<h2>الجزء الثاني: رأيك يهمنا</h2>'));
+    s.open.forEach(function(it){var c=card('<p class="q"></p>');c.querySelector('.q').textContent=it.q;var t=document.createElement('textarea');t.rows=3;t.oninput=function(){ans['o_'+it.id]=t.value.trim();progress();};c.appendChild(t);pb.appendChild(c);});
+  }
+  progress();
+}
+
+$('submitBtn').addEventListener('click',function(){
+  if(answered()<total()){$('qErr').classList.remove('hidden');return;}
+  var s=SURVEY[group], axes={};
+  s.a.forEach(function(it,i){var v=SCORE[ans['a'+i]];(axes[it[1]]=axes[it[1]]||[]).push(v);});
+  var all=[], axisAvg={};
+  Object.keys(axes).forEach(function(k){var arr=axes[k];axisAvg[k]=arr.reduce(function(x,y){return x+y;},0)/arr.length;all=all.concat(arr);});
+  var overall=all.reduce(function(x,y){return x+y;},0)/all.length;
+  var correct=0;s.b.forEach(function(it,i){if(ans['k'+i]===it.c)correct++;});
+
+  $('overall').textContent=Math.round(overall/5*100)+'%';
+  var ar=$('axisRes');ar.innerHTML='';
+  Object.keys(axisAvg).forEach(function(k){var p=Math.round(axisAvg[k]/5*100);
+    var r=document.createElement('div');r.innerHTML='<div class="bl"><span></span><span>'+p+'%</span></div><div class="track"><div class="fill" style="width:'+p+'%;background:'+AXIS_COL[k]+'"></div></div>';
+    r.querySelector('.bl span').textContent=k;ar.appendChild(r);});
+  $('quizRes').textContent=s.b.length?('الإجابات الصحيحة في الجزء المعرفي: '+correct+' من '+s.b.length):'';
+
+  var row={time:new Date().toISOString(),group:s.name,phase:phase,overall:overall.toFixed(2),
+    axis_digital:(axisAvg['وعي رقمي']||'')&&axisAvg['وعي رقمي'].toFixed(2),
+    axis_thought:(axisAvg['وعي فكري']||'')&&axisAvg['وعي فكري'].toFixed(2),
+    axis_security:(axisAvg['أمن رقمي']||'')&&axisAvg['أمن رقمي'].toFixed(2),
+    quiz_correct:s.b.length?correct:'',quiz_total:s.b.length||''};
+  Object.keys(ans).forEach(function(k){
+    if(k.charAt(0)==='a')row[k]=SCORE[ans[k]];
+    else if(k.charAt(0)==='k')row[k]=ans[k]===s.b[+k.slice(1)].c?1:0;
+    else row[k]=ans[k];
+  });
+
+  var st=$('sendState');
+  if(SHEET_URL){
+    st.innerHTML='<div class="card muted" style="text-align:center">جارٍ حفظ إجاباتك…</div>';
+    fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(row)})
+      .then(function(){st.innerHTML='<div class="sent">تم حفظ إجاباتك بنجاح ✓</div>';})
+      .catch(function(){st.innerHTML='<div class="warn">تعذّر الحفظ، تأكدي من الاتصال بالإنترنت وأعيدي المحاولة.</div>';});
+  } else {
+    st.innerHTML='<div class="warn">وضع التجربة: لم يُربط الاستبيان بجدول Google بعد، لذلك لم تُحفظ هذه الإجابات.</div>';
+  }
+  show('stepDone');
+});
+</script>
+</body>
+</html>
