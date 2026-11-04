@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>وعي رقمي… فكر وأمن</title>
+<meta name="description" content="مبادرة مدرسية للوعي الرقمي والفكري والأمن الرقمي لجميع منسوبات المدرسة وأولياء الأمور">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --ink:#14213d; --muted:#5b6478; --line:#e3e8f0;
+  --teal:#0f8b8d; --teal-soft:#e2f4f4; --navy:#1d3557; --gold:#e9a23b; --gold-soft:#fdf2e0;
+  --rose:#c8553d; --rose-soft:#fbe8e4; --violet:#6c4ab6; --violet-soft:#efe9fa;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f1624;--surface:#172033;--ink:#eef2f8;--muted:#a6b0c3;--line:#26324a;
+  --teal-soft:#123536;--gold-soft:#3a2d15;--rose-soft:#3a1d18;--violet-soft:#2a2142;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:17px}
+a{color:var(--teal)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(135deg,#1d3557 0%,#0f8b8d 100%);color:#fff;padding:56px 0 72px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.07)}
+.badge{display:inline-block;background:rgba(255,255,255,.16);padding:4px 14px;border-radius:999px;font-size:14px;margin-bottom:14px}
+h1{font-size:clamp(30px,6vw,52px);margin:0 0 8px;font-weight:800;line-height:1.3}
+.slogan{font-size:clamp(17px,3vw,22px);opacity:.95;margin:0 0 24px}
+.pillars{display:flex;flex-wrap:wrap;gap:10px}
+.pillars span{background:#fff;color:var(--navy);padding:8px 18px;border-radius:12px;font-weight:700}
+nav.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+nav.top a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:8px;font-weight:500;font-size:15px}
+nav.top a:hover{background:var(--teal-soft);color:var(--teal)}
+section{padding:48px 0 8px}
+h2{font-size:clamp(24px,4vw,32px);margin:0 0 6px;color:var(--ink)}
+h2 small{display:block;font-size:16px;color:var(--muted);font-weight:400;margin-top:2px}
+.lead{color:var(--muted);max-width:760px;margin:0 0 22px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;font-size:20px}
+.card p{margin:0;color:var(--muted)}
+.card ul{margin:8px 0 0;padding-inline-start:20px}
+.card li{margin:4px 0}
+.icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:24px;margin-bottom:10px}
+.t-teal .icon{background:var(--teal-soft)} .t-gold .icon{background:var(--gold-soft)}
+.t-rose .icon{background:var(--rose-soft)} .t-violet .icon{background:var(--violet-soft)}
+.t-teal{border-top:4px solid var(--teal)} .t-gold{border-top:4px solid var(--gold)}
+.t-rose{border-top:4px solid var(--rose)} .t-violet{border-top:4px solid var(--violet)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.info div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.info b{display:block;color:var(--muted);font-size:14px;font-weight:500}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.filters button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 16px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.act{display:flex;flex-direction:column;gap:8px}
+.act .tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;padding:2px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-weight:500}
+.tag.pillar{background:var(--gold-soft);color:#9a6512}
+@media (prefers-color-scheme: dark){.tag.pillar{color:var(--gold)}}
+.act .who{font-size:14px;color:var(--muted)}
+.hidden{display:none!important}
+.timeline{position:relative;display:grid;gap:16px}
+.phase{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start}
+.phase .wk{background:var(--navy);color:#fff;border-radius:12px;padding:12px;text-align:center;font-weight:700;line-height:1.4}
+.phase .wk small{display:block;font-weight:400;opacity:.85;font-size:13px}
+@media (max-width:560px){.phase{grid-template-columns:1fr}.phase .wk{text-align:right}}
+.table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th,td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--teal-soft);color:var(--ink);font-weight:700;font-size:15px}
+tr:last-child td{border-bottom:0}
+td.num{font-weight:700;color:var(--teal);white-space:nowrap}
+.pledge{background:linear-gradient(135deg,var(--teal-soft),var(--violet-soft));border-radius:20px;padding:28px;text-align:center}
+.pledge p{font-size:20px;font-weight:700;margin:0 0 8px}
+footer{padding:40px 0;color:var(--muted);text-align:center;font-size:15px}
+
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:center}
+.hero-art{width:100%;max-width:320px;justify-self:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:240px}}
+.hero-stats{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.hero-stats div{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 18px;text-align:center;line-height:1.3}
+.hero-stats b{display:block;font-size:28px}
+.impact-top{display:grid;grid-template-columns:260px 1fr;gap:16px;margin-bottom:18px}
+@media (max-width:700px){.impact-top{grid-template-columns:1fr}}
+.gauge{text-align:center}
+.gauge svg{width:100%;max-width:220px}
+.gauge #gArc{transition:stroke-dasharray .6s ease}
+.g-num{font-size:40px;font-weight:800;margin-top:-56px;color:var(--teal)}
+.g-lbl{color:var(--muted);font-size:15px}
+.bars{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.bar-row .bl{display:flex;justify-content:space-between;font-size:15px;margin-bottom:4px}
+.bar-track{height:14px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;transition:width .6s ease}
+.kpi-list{display:grid;gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.kpi .k-t{font-weight:700}
+.kpi .k-m{color:var(--muted);font-size:14px}
+.kpi .k-in{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.kpi label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.kpi input{width:76px;font:inherit;font-size:16px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);text-align:center}
+.kpi .k-bars{grid-column:1/-1;display:grid;gap:4px}
+.kpi .mini{display:grid;grid-template-columns:44px 1fr 48px;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.chip{font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap}
+.chip.ok{background:var(--teal-soft);color:var(--teal)} .chip.mid{background:var(--gold-soft);color:#9a6512} .chip.low{background:var(--rose-soft);color:var(--rose)}
+@media (max-width:560px){.kpi{grid-template-columns:1fr}}
+.btn{font:inherit;font-size:15px;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.quiz .q{font-size:19px;font-weight:700;margin:0 0 14px}
+.quiz .opts{display:grid;gap:10px}
+.quiz .opt{font:inherit;text-align:right;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 16px;cursor:pointer;color:var(--ink)}
+.quiz .opt:hover{border-color:var(--teal)}
+.quiz .opt.right{background:var(--teal-soft);border-color:var(--teal)}
+.quiz .opt.wrong{background:var(--rose-soft);border-color:var(--rose)}
+.quiz .prog{height:8px;background:var(--line);border-radius:999px;margin-bottom:18px;overflow:hidden}
+.quiz .prog i{display:block;height:100%;background:var(--teal);transition:width .4s}
+.quiz .tip{margin-top:12px;color:var(--muted)}
+.quiz .score{font-size:48px;font-weight:800;color:var(--teal);text-align:center}
+@media print{nav.top,.filters,.btn,#quiz,.hero-art{display:none!important}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">مبادرة مدرسية · تنفيذ الأستاذة أحلام راشد</span>
+    <h1>وعي رقمي… فكر وأمن</h1>
+    <p class="slogan">«أفكّر قبل أن أشارك… وأحمي قبل أن أندم»</p>
+    <div class="hero-grid">
+    <div>
+    <div class="pillars"><span>💡 الوعي الرقمي</span><span>🧭 الوعي الفكري</span><span>🛡️ الأمن الرقمي</span></div>
+    <div class="hero-stats"><div><b>4</b>فئات</div><div><b>16</b>نشاطًا</div><div><b>12</b>أسبوعًا</div></div>
+    </div>
+    <svg class="hero-art" viewBox="0 0 360 300" aria-hidden="true">
+      <circle cx="180" cy="150" r="128" fill="rgba(255,255,255,.08)"/>
+      <circle cx="180" cy="150" r="96" fill="rgba(255,255,255,.08)"/>
+      <rect x="104" y="58" width="152" height="196" rx="22" fill="#fff"/>
+      <rect x="116" y="80" width="128" height="150" rx="10" fill="#e2f4f4"/>
+      <circle cx="180" cy="241" r="5" fill="#cbd5e1"/>
+      <path d="M180 100l40 15v28c0 26-17 44-40 52-23-8-40-26-40-52v-28z" fill="#0f8b8d"/>
+      <path d="M163 148l12 12 24-26" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="134" y="206" width="92" height="8" rx="4" fill="#9fd6d6"/>
+      <g transform="translate(30 70)"><circle r="30" fill="#e9a23b"/><path d="M-9 4a11 11 0 1 1 18 0c-3 3-4 5-4 9h-10c0-4-1-6-4-9z" fill="#fff"/><rect x="-5" y="15" width="10" height="4" rx="2" fill="#fff"/></g>
+      <g transform="translate(320 92)"><circle r="26" fill="#6c4ab6"/><circle r="12" fill="none" stroke="#fff" stroke-width="3"/><path d="M0-12l4 12-4 12-4-12z" fill="#fff"/></g>
+      <g transform="translate(46 222)"><rect x="-26" y="-18" width="52" height="36" rx="10" fill="#fff"/><path d="M-12-4h24M-12 6h14" stroke="#1d3557" stroke-width="4" stroke-linecap="round"/></g>
+      <g transform="translate(310 220)"><circle r="24" fill="#c8553d"/><rect x="-9" y="-3" width="18" height="14" rx="3" fill="#fff"/><path d="M-5-3v-5a5 5 0 0 1 10 0v5" stroke="#fff" stroke-width="3" fill="none"/></g>
+    </svg>
+    </div>
+  </div>
+</header>
+
+<nav class="top" aria-label="أقسام الصفحة">
+  <div class="wrap">
+    <a href="#about">عن المبادرة</a><a href="#audiences">الفئات</a><a href="#goals">الأهداف</a>
+    <a href="#activities">الأنشطة</a><a href="#plan">الخطة الزمنية</a><a href="#kpi">قياس الأثر</a><a href="#quiz">اختبري وعيك</a><a href="#team">التنفيذ والإشراف</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="about">
+  <h2>عن المبادرة</h2>
+  <p class="lead">مبادرة تشمل مجتمع المدرسة كاملًا: الطالبات والمعلمات والإداريات وأولياء الأمور، لأن الحماية الرقمية والفكرية مسؤولية مشتركة لا تكتمل بفئة واحدة. تبني المبادرة وعيًا بالمحتوى، وحصانة فكرية، وسلوكًا آمنًا على الإنترنت.</p>
+  <div class="info">
+    <div><b>المدة</b>12 أسبوعًا (فصل دراسي)</div>
+    <div><b>الفئات المستهدفة</b>الطالبات، المعلمات، الإداريات، أولياء الأمور</div>
+    <div><b>الجهة المنفذة</b>الأستاذة أحلام راشد<br><span style="color:var(--muted);font-size:15px">تحت إشراف مديرة المدرسة الأستاذة زهراء مفلح</span></div>
+    <div><b>مكان التنفيذ</b>الفصول، معمل الحاسب، مصادر التعلم، قاعة الاجتماعات، اللقاءات الافتراضية</div>
+  </div>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card t-teal"><div class="icon">💡</div><h3>الوعي الرقمي</h3><p>التحقق من المعلومات، البصمة الرقمية، الاستخدام المتوازن للأجهزة، والاستخدام المسؤول للذكاء الاصطناعي.</p></div>
+    <div class="card t-gold"><div class="icon">🧭</div><h3>الوعي الفكري</h3><p>التفكير الناقد، الوسطية والاعتدال، تعزيز الهوية الوطنية، كشف أساليب الاستقطاب ومواجهة الشائعات.</p></div>
+    <div class="card t-rose"><div class="icon">🛡️</div><h3>الأمن الرقمي</h3><p>حماية الحسابات والبيانات، كشف الاحتيال والتصيّد، التعامل مع التنمر والابتزاز الإلكتروني وجهات البلاغ.</p></div>
+  </div>
+</section>
+
+<section id="audiences">
+  <h2>الفئات المستهدفة<small>لكل فئة رسالة ودور</small></h2>
+  <div class="grid g4" style="margin-top:16px">
+    <div class="card t-teal"><div class="icon">🎓</div><h3>الطالبات</h3><p>الفئة الأساسية: تحصين فكري ومهارات تحقق وحماية حسابات وإنتاج محتوى هادف.</p></div>
+    <div class="card t-violet"><div class="icon">👩‍🏫</div><h3>المعلمات</h3><p>قدوة ومرشدات: دمج رسائل الوعي في الدروس، واكتشاف المؤشرات السلوكية المقلقة مبكرًا.</p></div>
+    <div class="card t-gold"><div class="icon">🗂️</div><h3>الإداريات</h3><p>حارسات البيانات: حماية بيانات الطالبات والأنظمة المدرسية من الاختراق والتصيّد.</p></div>
+    <div class="card t-rose"><div class="icon">🏠</div><h3>أولياء الأمور</h3><p>شركاء في البيت: الرقابة الأبوية، الحوار مع الأبناء، والتصرف السليم عند التعرض للخطر.</p></div>
+  </div>
+</section>
+
+<section id="goals">
+  <h2>الأهداف</h2>
+  <p class="lead"><b>الهدف العام:</b> بناء مجتمع مدرسي واعٍ رقميًا، محصّن فكريًا، يستخدم التقنية بأمان ومسؤولية، ويحمي نفسه ومجتمعه من المحتوى والأفكار الضارة.</p>
+  <div class="grid g2">
+    <div class="card t-teal"><h3>🎓 للطالبات</h3><ul>
+      <li>التمييز بين الحقيقة والرأي والشائعة، والتحقق قبل النشر.</li>
+      <li>إدراك أساليب الاستقطاب الفكري ورفضها، والاعتزاز بالهوية الوطنية.</li>
+      <li>حماية الحسابات بكلمات مرور قوية والتحقق الثنائي وإعدادات الخصوصية.</li>
+      <li>التعامل الواعي مع التنمر والابتزاز ومعرفة جهات البلاغ.</li>
+      <li>إنتاج محتوى رقمي هادف واستخدام الذكاء الاصطناعي بمسؤولية.</li></ul></div>
+    <div class="card t-violet"><h3>👩‍🏫 للمعلمات</h3><ul>
+      <li>دمج قيم المواطنة الرقمية والوعي الفكري في الدروس اليومية.</li>
+      <li>رصد المؤشرات السلوكية للتنمر أو الاستقطاب وتحويلها للموجّهة.</li>
+      <li>استخدام المنصات التعليمية وأدوات الذكاء الاصطناعي استخدامًا آمنًا.</li></ul></div>
+    <div class="card t-gold"><h3>🗂️ للإداريات</h3><ul>
+      <li>حماية بيانات الطالبات وسرية السجلات في الأنظمة المدرسية.</li>
+      <li>كشف رسائل التصيّد والروابط المشبوهة والتعامل معها.</li>
+      <li>تطبيق سياسة كلمات المرور والتحقق الثنائي على حسابات العمل.</li></ul></div>
+    <div class="card t-rose"><h3>🏠 لأولياء الأمور</h3><ul>
+      <li>تفعيل أدوات الرقابة الأبوية وضبط وقت الشاشة.</li>
+      <li>فتح حوار آمن مع الأبناء حول ما يواجهونه على الإنترنت.</li>
+      <li>معرفة علامات الخطر وخطوات التصرف وجهات البلاغ الرسمية.</li></ul></div>
+  </div>
+</section>
+
+<section id="activities">
+  <h2>البرامج والأنشطة</h2>
+  <p class="lead">اختاري الفئة لعرض أنشطتها.</p>
+  <div class="filters" role="group" aria-label="تصفية حسب الفئة">
+    <button type="button" data-f="all" aria-pressed="true">الكل</button>
+    <button type="button" data-f="students" aria-pressed="false">الطالبات</button>
+    <button type="button" data-f="teachers" aria-pressed="false">المعلمات</button>
+    <button type="button" data-f="admin" aria-pressed="false">الإداريات</button>
+    <button type="button" data-f="parents" aria-pressed="false">أولياء الأمور</button>
+  </div>
+  <div class="grid g3" id="acts">
+    <div class="card act" data-a="students"><h3>إذاعة «أفكّر قبل أن أشارك»</h3><p>إذاعة صباحية أسبوعية عن الشائعات والهوية والأمان الرقمي.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">فكري</span></div><span class="who">المنفذ: جماعة الإذاعة</span></div>
+    <div class="card act" data-a="students"><h3>ورشة «تحقّقي قبل أن تنشري»</h3><p>تدريب عملي على التحقق من الأخبار والصور ومصادرها.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">رقمي</span></div><span class="who">المنفذ: معلمة المهارات الرقمية</span></div>
+    <div class="card act" data-a="students"><h3>ورشة «حسابي آمن»</h3><p>ضبط الخصوصية وكلمات المرور والتحقق الثنائي خطوة بخطوة.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">أمن</span></div><span class="who">المنفذ: معلمة المهارات الرقمية</span></div>
+    <div class="card act" data-a="students"><h3>مناظرة طالبية</h3><p>مناظرة حول قضايا رقمية لتنمية التفكير الناقد وأدب الحوار.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">فكري</span></div><span class="who">المنفذ: رائدة النشاط</span></div>
+    <div class="card act" data-a="students"><h3>مسابقة المحتوى الهادف</h3><p>تصميم إنفوجرافيك أو فيديو قصير عن الوعي الرقمي والفكري.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">رقمي</span></div><span class="who">المنفذ: معلمات المواد</span></div>
+    <div class="card act" data-a="students"><h3>سفيرات الوعي الرقمي</h3><p>طالبة من كل فصل تنشر رسائل التوعية بين زميلاتها طوال الفصل.</p><div class="tags"><span class="tag">الطالبات</span><span class="tag pillar">جميع المحاور</span></div><span class="who">المنفذ: رائدة النشاط</span></div>
+    <div class="card act" data-a="teachers"><h3>لقاء «المعلمة القدوة الرقمية»</h3><p>كيف تدمج المعلمة رسائل الوعي الفكري والرقمي في دروسها.</p><div class="tags"><span class="tag">المعلمات</span><span class="tag pillar">فكري</span></div><span class="who">المنفذ: الموجّهة الطلابية</span></div>
+    <div class="card act" data-a="teachers"><h3>ورشة الذكاء الاصطناعي الآمن</h3><p>استخدام أدوات الذكاء الاصطناعي في التعليم بأمان وأخلاقيات.</p><div class="tags"><span class="tag">المعلمات</span><span class="tag pillar">رقمي</span></div><span class="who">المنفذ: معلمة المهارات الرقمية</span></div>
+    <div class="card act" data-a="teachers"><h3>دليل رصد المؤشرات السلوكية</h3><p>علامات التنمر والاستقطاب والابتزاز وآلية التحويل للموجّهة.</p><div class="tags"><span class="tag">المعلمات</span><span class="tag pillar">أمن</span></div><span class="who">المنفذ: الموجّهة الطلابية</span></div>
+    <div class="card act" data-a="admin"><h3>ورشة «بيانات طالباتنا أمانة»</h3><p>حماية السجلات والبيانات في الأنظمة المدرسية وسياسة كلمات المرور.</p><div class="tags"><span class="tag">الإداريات</span><span class="tag pillar">أمن</span></div><span class="who">المنفذ: مختصة أمن سيبراني</span></div>
+    <div class="card act" data-a="admin"><h3>محاكاة رسائل التصيّد</h3><p>تمرين عملي لاكتشاف الرسائل والروابط المشبوهة والإبلاغ عنها.</p><div class="tags"><span class="tag">الإداريات</span><span class="tag">المعلمات</span><span class="tag pillar">أمن</span></div><span class="who">المنفذ: معلمة المهارات الرقمية</span></div>
+    <div class="card act" data-a="parents"><h3>لقاء «أسرة واعية رقميًا»</h3><p>الرقابة الأبوية، وقت الشاشة، والحوار الآمن مع الأبناء.</p><div class="tags"><span class="tag">أولياء الأمور</span><span class="tag pillar">رقمي</span></div><span class="who">المنفذ: الأستاذة أحلام راشد</span></div>
+    <div class="card act" data-a="parents"><h3>رسائل توعوية أسبوعية</h3><p>رسالة قصيرة أو إنفوجرافيك أسبوعي عبر قنوات التواصل مع الأسر.</p><div class="tags"><span class="tag">أولياء الأمور</span><span class="tag pillar">جميع المحاور</span></div><span class="who">المنفذ: الأستاذة أحلام راشد</span></div>
+    <div class="card act" data-a="parents"><h3>محاضرة الأمن الفكري للأسرة</h3><p>مع مختص: أساليب الاستقطاب الإلكتروني ودور الأسرة في الوقاية.</p><div class="tags"><span class="tag">أولياء الأمور</span><span class="tag pillar">فكري</span></div><span class="who">المنفذ: الموجّهة الطلابية</span></div>
+    <div class="card act" data-a="students teachers admin parents"><h3>ركن الوعي الرقمي</h3><p>لوحات ورموز QR في ممرات المدرسة تقود لمحتوى توعوي.</p><div class="tags"><span class="tag">الجميع</span><span class="tag pillar">جميع المحاور</span></div><span class="who">المنفذ: مصادر التعلم</span></div>
+    <div class="card act" data-a="students teachers admin parents"><h3>المعرض الختامي والتكريم</h3><p>عرض منتجات الطالبات وتكريم السفيرات والمتميزات بحضور الأسر.</p><div class="tags"><span class="tag">الجميع</span><span class="tag pillar">جميع المحاور</span></div><span class="who">المنفذ: الأستاذة أحلام راشد</span></div>
+  </div>
+</section>
+
+<section id="plan">
+  <h2>الخطة الزمنية<small>أربع مراحل خلال 12 أسبوعًا</small></h2>
+  <div class="timeline" style="margin-top:16px">
+    <div class="phase"><div class="wk">المرحلة 1<small>الأسبوعان 1 و2</small></div><div class="card"><h3>التخطيط والإعداد</h3><p>تشكيل فريق المبادرة، الاستبانة القبلية لجميع الفئات، إعداد المواد التوعوية، إعلان المبادرة للأسر.</p></div></div>
+    <div class="phase"><div class="wk">المرحلة 2<small>الأسابيع 3 إلى 5</small></div><div class="card"><h3>الوعي الفكري</h3><p>المناظرة الطالبية، لقاء المعلمة القدوة، محاضرة الأمن الفكري للأسرة، اختيار سفيرات الوعي.</p></div></div>
+    <div class="phase"><div class="wk">المرحلة 3<small>الأسابيع 6 إلى 9</small></div><div class="card"><h3>الوعي والأمن الرقمي</h3><p>ورش التحقق و«حسابي آمن»، ورشة الإداريات ومحاكاة التصيّد، ورشة الذكاء الاصطناعي، لقاء «أسرة واعية رقميًا»، مسابقة المحتوى.</p></div></div>
+    <div class="phase"><div class="wk">المرحلة 4<small>الأسابيع 10 إلى 12</small></div><div class="card"><h3>الختام والتقويم</h3><p>المعرض الختامي والتكريم، الاستبانة البعدية، إعداد التقرير النهائي.</p></div></div>
+    <div class="phase"><div class="wk" style="background:var(--teal)">مستمر<small>طوال المبادرة</small></div><div class="card"><h3>أنشطة دائمة</h3><p>الإذاعة الأسبوعية، الرسائل التوعوية للأسر، سفيرات الوعي الرقمي، ركن الوعي الرقمي.</p></div></div>
+  </div>
+</section>
+
+<section id="kpi">
+  <h2>قياس الأثر<small>أدخلي نتائج القياس القبلي والبعدي، ويُحسب الأثر تلقائيًا</small></h2>
+  <p class="lead">القيم الافتراضية أمثلة توضيحية؛ استبدليها بنتائج مدرستك الفعلية. تُحفظ أرقامك على هذا الجهاز.</p>
+  <div class="impact-top">
+    <div class="gauge card">
+      <svg viewBox="0 0 200 120" aria-hidden="true"><path d="M20 105a80 80 0 0 1 160 0" stroke="var(--line)" stroke-width="18" fill="none" stroke-linecap="round"/><path id="gArc" d="M20 105a80 80 0 0 1 160 0" stroke="var(--teal)" stroke-width="18" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/></svg>
+      <div class="g-num" id="gNum">0%</div>
+      <div class="g-lbl">متوسط تحقق المستهدفات</div>
+    </div>
+    <div class="card bars" id="groupBars" aria-label="الأثر حسب الفئة"></div>
+  </div>
+  <div class="filters" role="group" aria-label="تصفية المؤشرات">
+    <button type="button" data-k="all" aria-pressed="true">الكل</button>
+    <button type="button" data-k="الطالبات" aria-pressed="false">الطالبات</button>
+    <button type="button" data-k="المعلمات" aria-pressed="false">المعلمات</button>
+    <button type="button" data-k="الإداريات" aria-pressed="false">الإداريات</button>
+    <button type="button" data-k="أولياء الأمور" aria-pressed="false">أولياء الأمور</button>
+  </div>
+  <div class="kpi-list" id="kpiList"></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+    <button type="button" class="btn" id="resetKpi">استعادة القيم الافتراضية</button>
+    <button type="button" class="btn ghost" onclick="window.print()">طباعة التقرير</button>
+  </div>
+</section>
+
+<section id="quiz">
+  <h2>اختبري وعيك الرقمي<small>6 أسئلة سريعة تصلح قياسًا قبليًا وبعديًا لجميع الفئات</small></h2>
+  <div class="card quiz" id="quizBox"></div>
+</section>
+
+<section id="team">
+  <h2>التنفيذ والإشراف والشركاء</h2>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>التنفيذ والإشراف</h3><ul>
+      <li><b>منفذة المبادرة:</b> الأستاذة أحلام راشد.</li>
+      <li><b>الإشراف:</b> مديرة المدرسة الأستاذة زهراء مفلح.</li>
+      <li>بالتعاون مع: رائدة النشاط، الموجّهة الطلابية، أمينة مصادر التعلم.</li></ul></div>
+    <div class="card"><h3>الشركاء والموارد</h3><ul>
+      <li>إدارة التعليم (وحدة الوعي الفكري، النشاط الطلابي).</li>
+      <li>مختصات في الأمن السيبراني والأمن الفكري.</li>
+      <li>مجلس المدرسة وأولياء الأمور.</li>
+      <li>معمل الحاسب، أجهزة العرض، مطبوعات، جوائز وشهادات.</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="pledge">
+    <p>«مجتمعنا المدرسي… واعٍ رقميًا، آمن فكريًا، محمي إلكترونيًا»</p>
+    <span style="color:var(--muted)">شاركينا المبادرة، وكوني سفيرة للوعي في بيتك ومدرستك.</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">مبادرة «وعي رقمي… فكر وأمن» · تنفيذ الأستاذة أحلام راشد · بإشراف مديرة المدرسة الأستاذة زهراء مفلح</div>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('#activities .filters button');
+  var acts=document.querySelectorAll('#acts .act');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-f');
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      acts.forEach(function(a){
+        var aud=a.getAttribute('data-a').split(' ');
+        a.classList.toggle('hidden', f!=='all' && aud.indexOf(f)===-1);
+      });
+    });
+  });
+})();
+
+(function(){
+  var DEF=[
+    {g:'الطالبات',t:'درجة الوعي الرقمي والفكري',m:'اختبار قبلي وبعدي (من 100)',pre:55,post:78,target:75},
+    {g:'الطالبات',t:'نسبة المشاركة في الأنشطة',m:'سجلات الحضور (%)',pre:0,post:82,target:80},
+    {g:'الطالبات',t:'تفعيل التحقق الثنائي على الحسابات',m:'استبانة ذاتية (%)',pre:25,post:64,target:70},
+    {g:'الطالبات',t:'التحقق من الخبر قبل نشره',m:'استبانة ذاتية (%)',pre:30,post:71,target:70},
+    {g:'المعلمات',t:'حضور اللقاءات والورش',m:'سجلات الحضور (%)',pre:0,post:92,target:90},
+    {g:'المعلمات',t:'دروس دمجت رسائل الوعي',m:'زيارات صفية (%)',pre:10,post:68,target:80},
+    {g:'الإداريات',t:'اكتشاف رسائل التصيّد',m:'نتائج المحاكاة (%)',pre:45,post:88,target:90},
+    {g:'الإداريات',t:'حسابات عمل مفعّل بها التحقق الثنائي',m:'مراجعة الأنظمة (%)',pre:30,post:100,target:100},
+    {g:'أولياء الأمور',t:'حضور اللقاءات',m:'سجلات الحضور (%)',pre:0,post:46,target:50},
+    {g:'أولياء الأمور',t:'تفعيل الرقابة الأبوية',m:'استبانة (%)',pre:35,post:62,target:70},
+    {g:'أولياء الأمور',t:'الرضا عن المبادرة',m:'استبانة إلكترونية (%)',pre:0,post:88,target:85}
+  ];
+  var COL={'الطالبات':'var(--teal)','المعلمات':'var(--violet)','الإداريات':'var(--gold)','أولياء الأمور':'var(--rose)'};
+  var KEY='wa3y-kpi-v1', data, filter='all';
+  function clone(){return JSON.parse(JSON.stringify(DEF));}
+  function load(){try{var v=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(v)&&v.length===DEF.length)return v;}catch(e){} return clone();}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(data));}catch(e){}}
+  function ach(k){return k.target>0?Math.min(100,Math.round(k.post/k.target*100)):0;}
+  function cls(a){return a>=100?'ok':a>=80?'mid':'low';}
+  function avg(a){return a.length?Math.round(a.reduce(function(x,y){return x+y;},0)/a.length):0;}
+  function render(){
+    var list=document.getElementById('kpiList'); list.innerHTML='';
+    data.forEach(function(k,i){
+      if(filter!=='all'&&k.g!==filter)return;
+      var a=ach(k), d=k.post-k.pre;
+      var el=document.createElement('div'); el.className='kpi';
+      el.innerHTML='<div><div class="k-t"></div><div class="k-m"></div></div>'+
+        '<div class="k-in"><label>قبل<input type="number" min="0" max="100" data-i="'+i+'" data-f="pre"></label>'+
+        '<label>بعد<input type="number" min="0" max="100" data-i="'+i+'" data-f="post"></label>'+
+        '<label>المستهدف<input type="number" min="0" max="100" data-i="'+i+'" data-f="target"></label>'+
+        '<span class="chip '+cls(a)+'">'+(d>=0?'+':'')+d+' نقطة</span></div>'+
+        '<div class="k-bars"><div class="mini"><span>قبل</span><div class="bar-track"><div class="bar-fill" style="width:'+k.pre+'%;background:var(--muted);opacity:.5"></div></div><span>'+k.pre+'%</span></div>'+
+        '<div class="mini"><span>بعد</span><div class="bar-track"><div class="bar-fill" style="width:'+Math.min(100,k.post)+'%;background:'+COL[k.g]+'"></div></div><span>'+k.post+'%</span></div></div>';
+      el.querySelector('.k-t').textContent=k.t;
+      el.querySelector('.k-m').textContent=k.g+' · '+k.m+' · نسبة التحقق: '+a+'%';
+      el.querySelectorAll('input').forEach(function(inp){inp.value=k[inp.dataset.f];});
+      list.appendChild(el);
+    });
+    var v=avg(data.map(ach));
+    document.getElementById('gNum').textContent=v+'%';
+    document.getElementById('gArc').setAttribute('stroke-dasharray',v+' 100');
+    var gb=document.getElementById('groupBars'); gb.innerHTML='<div style="font-weight:700">متوسط التحقق حسب الفئة</div>';
+    Object.keys(COL).forEach(function(g){
+      var gv=avg(data.filter(function(k){return k.g===g;}).map(ach));
+      var r=document.createElement('div'); r.className='bar-row';
+      r.innerHTML='<div class="bl"><span>'+g+'</span><b>'+gv+'%</b></div><div class="bar-track"><div class="bar-fill" style="width:'+gv+'%;background:'+COL[g]+'"></div></div>';
+      gb.appendChild(r);
+    });
+  }
+  data=load(); render();
+  document.getElementById('kpiList').addEventListener('change',function(e){
+    var t=e.target; if(!t.dataset||t.dataset.i===undefined)return;
+    data[+t.dataset.i][t.dataset.f]=Math.max(0,Math.min(100,Number(t.value)||0)); save(); render();
+  });
+  document.getElementById('resetKpi').addEventListener('click',function(){data=clone();save();render();});
+  var kb=document.querySelectorAll('#kpi .filters button');
+  kb.forEach(function(b){b.addEventListener('click',function(){filter=b.dataset.k;kb.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render();});});
+
+  var Q=[
+    {q:'وصلتك رسالة تقول: «حسابك سيُغلق، اضغطي الرابط فورًا». ماذا تفعلين؟',o:['أضغط الرابط بسرعة','أتجاهلها وأتحقق من الجهة الرسمية مباشرة','أرسلها لصديقاتي'],a:1,tip:'الاستعجال والتهديد من أشهر علامات رسائل التصيّد.'},
+    {q:'انتشر خبر مثير في مجموعة الواتساب. ما أول خطوة؟',o:['أعيد إرساله فورًا','أتحقق من مصدره الرسمي قبل أي مشاركة','أصدقه لأن الجميع أرسله'],a:1,tip:'كثرة التداول لا تعني صحة الخبر؛ ابحثي عن المصدر الرسمي.'},
+    {q:'أي كلمة مرور أقوى؟',o:['12345678','اسمي وتاريخ ميلادي','عبارة طويلة تمزج حروفًا وأرقامًا ورموزًا'],a:2,tip:'الطول والتنوع أهم عناصر قوة كلمة المرور، مع التحقق الثنائي.'},
+    {q:'حساب مجهول يمدح أفكارك ويطلب الحديث سرًا بعيدًا عن أهلك. هذا…',o:['صداقة طبيعية','علامة خطر محتملة لاستدراج أو استقطاب','فرصة للتعارف'],a:1,tip:'طلب السرية والعزل عن الأهل من أبرز علامات الاستدراج.'},
+    {q:'تعرضت زميلة لابتزاز إلكتروني. ما التصرف الصحيح؟',o:['تستجيب لما يُطلب منها','تحتفظ بالأدلة ولا تتجاوب وتبلّغ الجهات الرسمية وأسرتها','تحذف كل شيء وتسكت'],a:1,tip:'الاحتفاظ بالأدلة والإبلاغ يحميها؛ الاستجابة للمبتز تزيد الضغط.'},
+    {q:'ما معنى «البصمة الرقمية»؟',o:['بصمة الإصبع لفتح الجوال','كل ما نتركه من أثر على الإنترنت ويبقى طويلًا','برنامج حماية'],a:1,tip:'ما ننشره اليوم قد يُرى بعد سنوات؛ فكّري قبل أن تنشري.'}
+  ];
+  var qi=0, sc=0, box=document.getElementById('quizBox');
+  function q(){
+    if(qi>=Q.length){
+      var p=Math.round(sc/Q.length*100), msg=p>=84?'ممتاز! أنتِ سفيرة وعي رقمي.':p>=50?'جيد، وتستطيعين التقدم أكثر مع أنشطة المبادرة.':'بداية جيدة؛ المبادرة صُممت لكِ.';
+      box.innerHTML='<div class="score">'+p+'%</div><p style="text-align:center;font-size:19px;margin:6px 0 16px;color:var(--ink)"></p><div style="text-align:center"><button class="btn" type="button">إعادة الاختبار</button></div>';
+      box.querySelector('p').textContent=msg+' ('+sc+' من '+Q.length+')';
+      box.querySelector('button').onclick=function(){qi=0;sc=0;q();};
+      return;
+    }
+    var it=Q[qi];
+    box.innerHTML='<div class="prog"><i style="width:'+(qi/Q.length*100)+'%"></i></div><div style="color:var(--muted);margin-bottom:6px;font-size:14px">السؤال '+(qi+1)+' من '+Q.length+'</div><p class="q"></p><div class="opts"></div><div class="tip"></div>';
+    box.querySelector('.q').textContent=it.q;
+    var opts=box.querySelector('.opts');
+    it.o.forEach(function(t,j){
+      var b=document.createElement('button'); b.type='button'; b.className='opt'; b.textContent=t;
+      b.onclick=function(){
+        opts.querySelectorAll('.opt').forEach(function(x,k){x.disabled=true;if(k===it.a)x.classList.add('right');});
+        if(j===it.a)sc++; else b.classList.add('wrong');
+        box.querySelector('.tip').textContent='💡 '+it.tip;
+        var n=document.createElement('button'); n.className='btn'; n.type='button'; n.style.marginTop='14px'; n.textContent=qi<Q.length-1?'التالي':'النتيجة';
+        n.onclick=function(){qi++;q();}; box.appendChild(n);
+      };
+      opts.appendChild(b);
+    });
+  }
+  q();
+})();
+</script>
+</body>
+</html>
